@@ -1,0 +1,44 @@
+#include <iostream>
+
+using namespace std;
+
+int binarySearch(int first, int last, int element, int array[]);
+
+int main()
+{
+    int arr[10];
+    int i,x;
+    int result;
+   //Taking user Input
+   cout << "Enter sorted array";
+   for (i=0;i<10;i++)
+   cin>>arr[i];
+   cout << "Enter Search element:";
+   cin>>x;
+   
+   result=binarySearch(0,9,x,arr);
+   if(result!=-1)
+   {
+       cout<<"Found at index: "<<result<<"\n";
+   }
+    else
+   cout<<"Not Found :(\n";
+   return 0;
+}
+
+int binarySearch(int first, int last, int element, int array[])
+{
+    if(first>last)
+    return -1;
+    
+    int mid=(first+last)/2;
+    
+    if(array[mid]==element)
+    return mid;
+    
+    else if (array[mid]<element)
+    binarySearch(mid+1,9,element,array);
+    
+    else if (array[mid]>element)
+    binarySearch(0,mid-1,element,array);
+}
