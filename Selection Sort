@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int temp,index;
+   int a[]={10,9,8,7,6,5,4,3,2,1};
+   
+   for (int i=0;i<10;i++)
+   {
+       index=i;
+       
+       for(int j=i+1;j<10;j++)
+       if(a[index]>a[j])
+       {
+           index=j;
+       }
+       
+       temp=a[i];
+       a[i]=a[index];
+       a[index]=temp;
+       
+   }
+   
+   for(int i=0;i<10;i++)
+   cout<<a[i]<<"\n";
+   return 0;
+}
+
